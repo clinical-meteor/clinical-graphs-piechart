@@ -45,7 +45,23 @@ Graphs = {
       // });
 
       Tracker.autorun(function(){
-        var graphData = ReportedOutcomes.findOne();
+        var graphData = [{
+          "label": "One",
+          "value" : 0
+        },
+        {
+          "label": "Two",
+          "value" : 0
+        },
+        {
+          "label": "Three",
+          "value" : 0
+        }];
+
+        var rawData = ReportedOutcomes.findOne();
+        if (rawData) {
+          graphData = rawData.bucket;
+        }
         console.log("graphData", graphData);
 
           // now we want to define our graph
@@ -77,7 +93,7 @@ Graphs = {
               d3.select('#reportedOutcomeStats svg')
                 .attr('width', width)
                 .attr('height', height)
-                .datum(graphData.bucket)
+                .datum(graphData)
                 .transition().duration(350)
                 .call(chart);
 

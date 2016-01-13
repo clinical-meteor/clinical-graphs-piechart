@@ -1,6 +1,6 @@
 Package.describe({
   name: 'clinical:graphs-piechart',
-  version: '2.5.0',
+  version: '2.5.1',
   summary: 'Piechart for Meteor ClinicalFramework ',
   git: 'https://github.com/clinical-meteor/clinical-graphs-piechart',
   documentation: 'README.md'
