@@ -23,12 +23,9 @@ Note that you can currently only have one ReportedOutcomesChart on the page at a
 Router.route("/analytics", {
   name:"analyticsRoute",
   template:"analytics",
-  waitOn: function () {
-    Meteor.subscribe('interactionsDaily');
-  },
   onAfterAction: function () {
     Graphs.renderReportedOutcomesStats();
-  },
+  }
 });
 ````
 
