@@ -1,48 +1,8 @@
-// dailyTotal = {
-//   color: "#45b76f",
-//   key: "DailyTotal"
-// }
-// bucketAConfig = {
-//   color: "#E68A2E",
-//   key: "BucketA"
-// }
-// bucketBConfig = {
-//   color: "#80B2FF",
-//   key: "BucketB"
-// }
-// bucketCConfig = {
-//   color: "#DB4D4D",
-//   key: "BucketC"
-// }
+
 
 Graphs = {
   renderReportedOutcomesStats: function(){
     //console.log('Graphs.renderDailyInteractionsDailyStats');
-
-
-      // Begin rendering our graph by creating a query object
-      // this is usually relevent for scoping the entire graph by date range
-      // or by a particular group, organization, client, etc
-      //var queryObject = {};
-
-      // var reportedOutcomesConfig = Session.get('ReportedOutcomesConfig');
-      // Object.keys(reportedOutcomesConfig).forEach(function(key){
-      //
-      //   // we fetch our dataset, sort it, and make copies for each line we're going to draw
-      //   reportedOutcomesConfig[key].values = ReportedOutcomes.find(queryObject, {sort: {dateIncrement: -1}}).fetch();
-      //
-      // });
-      // Object.keys(reportedOutcomesConfig).forEach(function(key){
-      //   reportedOutcomesConfig[key].values.map(function(doc, i){
-      //     doc.yAxisValue = doc[key];
-      //   });
-      // });
-      //
-      //
-      // var graphData = [];
-      // Object.keys(reportedOutcomesConfig).forEach(function(key){
-      //   graphData.push(reportedOutcomesConfig[key]);
-      // });
 
       Tracker.autorun(function(){
         var graphData = [{
@@ -58,7 +18,7 @@ Graphs = {
           "value" : 0
         }];
 
-        var rawData = ReportedOutcomes.findOne();
+        var rawData = ReportedOutcomes.findOne({_id: Session.get('activeReportedOutcomeId')});
         if (rawData) {
           graphData = rawData.bucket;
         }
@@ -134,11 +94,5 @@ Graphs = {
 
       });
 
-
-
-
-
-
-    //}
   }
 }

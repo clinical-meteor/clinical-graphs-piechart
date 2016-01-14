@@ -1,6 +1,6 @@
 Package.describe({
   name: 'clinical:graphs-piechart',
-  version: '2.5.1',
+  version: '2.5.2',
   summary: 'Piechart for Meteor ClinicalFramework ',
   git: 'https://github.com/clinical-meteor/clinical-graphs-piechart',
   documentation: 'README.md'
@@ -24,8 +24,6 @@ Package.onUse(function (api) {
   api.addFiles('components/ReportedOutcomesChart/ReportedOutcomesChart.js', 'client');
   api.addFiles('components/ReportedOutcomesChart/ReportedOutcomesChart.less', 'client');
 
-  api.addFiles('server/reported.outcomes.initialize.js', 'server');
-  api.addFiles('server/reported.outcomes.observer.js', 'server');
   api.addFiles('server/reported.outcomes.methods.js', 'server');
 
   api.export('ReportedOutcomes');
